@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+<div class="container py-3">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <h1>Avaliações</h1>
+            <ul>
+            {% for avaliacao in avaliacoes %}
+                    <li>
+                        <strong>{{ avaliacao.nome }}</strong> 
+                        Nota: {{ avaliacao.nota }} 
+                        <span>
+                            {% for i in range(avaliacao.nota) %}
+                                <i class="bi bi-star-fill text-warning"></i>
+                            {% endfor %}
+                            {% for i in range(5 - avaliacao.nota) %}
+                                <i class="bi bi-star text-muted"></i>
+                            {% endfor %}
+                        </span>
+                        <ul>
+                            <li>{{ avaliacao.comentario }}</li>
+                        </ul>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    </div>
+{% endblock %}

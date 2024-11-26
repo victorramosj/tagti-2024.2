@@ -39,6 +39,13 @@ def dados():
         return f"Nome: {nome}, Email: {email}, Mensagem: {msg}"
     else:
         return "Método não permitido"
+    
+@app.route('/recebedados', methods=['GET'])
+def recebedados():
+    nome = request.args['nome']
+    #nome = request.args.get("nome")
+    return nome
+
 
 if __name__ == '__main__':
     app.run()
